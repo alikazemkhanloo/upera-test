@@ -29,3 +29,12 @@ yarn dev
 ```
 
 Open browser and go to `localhost:3000`
+
+### Run tests
+
+```bash
+yarn test
+
+# or to watch in development
+yarn test:watch
+```
