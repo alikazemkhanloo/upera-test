@@ -1,6 +1,18 @@
 # Steps to run development server
 
-### Install dependacies:
+### Clone the project
+
+```bash
+# using ssh
+git clone git@github.com:alikazemkhanloo/upera-test.git
+
+# or using https
+git clone https://github.com/alikazemkhanloo/upera-test.git
+```
+
+### Install dependacies
+
+In the root of the project run:
 
 ```bash
 npm i
@@ -8,7 +20,7 @@ npm i
 yarn install
 ```
 
-### Run the development server:
+### Run the development server
 
 ```bash
 npm run dev
