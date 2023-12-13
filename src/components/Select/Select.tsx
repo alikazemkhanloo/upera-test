@@ -3,9 +3,9 @@ import { MenuState, Menu, MenuItem } from "@szhsin/react-menu";
 import { ChevronDownIcon } from "@/components/icons";
 
 type Props<T extends { value: any; label: string }> = {
-  onChange(option: T): void;
+  onChange?(option: T): void;
   options: T[];
-  defaultValue: T;
+  defaultValue?: T;
 };
 
 const menuClassName = ({ state }: { state: MenuState }) =>
@@ -40,7 +40,7 @@ export const Select = <T extends Option>(props: Props<T>) => {
       transition={true}
       menuButton={
         <div className="transition-colors duration-300 cursor-pointer text-xs font-medium min-w-[43px] flex items-center justify-between rounded-lg px-2 py-[9px] bg-light-select-bg dark:bg-dark-select-bg hover:bg-light-select-bg-hover hover:dark:bg-dark-select-bg-hover">
-          {value?.label}
+          <span data-testid="selected-value">{value?.label}</span>
           <ChevronDownIcon className="fill-light-gray dark:fill-dard-gray ml-[5px]" />
         </div>
       }
@@ -52,7 +52,7 @@ export const Select = <T extends Option>(props: Props<T>) => {
             key={option.value}
             onClick={() => {
               setValue(option);
-              onChange(option);
+              onChange?.(option);
             }}
           >
             {option.label}
