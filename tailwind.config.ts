@@ -31,11 +31,13 @@ const config: Config = {
           "select-bg": "#E0E0E0",
           background: "#fff",
           gray: "#9e9e9e",
+          "table-odd": "#F7F6FE",
         },
         dark: {
           "select-bg": "#141432",
           background: "#1D1E42",
           gray: "#fff",
+          "table-odd": "#26264F",
         },
       },
     },

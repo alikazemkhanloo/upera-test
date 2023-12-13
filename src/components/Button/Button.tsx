@@ -12,7 +12,7 @@ export const Button: FC<Props> = (props) => {
     <button
       {...props}
       className={twMerge(
-        "bg-primary h-8 text-xs font-bold py-[8.5px] px-3 flex items-center rounded-lg"
+        "bg-primary h-8 text-xs font-bold py-[8.5px] px-3 flex items-center rounded-lg text-white"
       )}
     >
       <div className="mr-2">{leftIcon}</div>

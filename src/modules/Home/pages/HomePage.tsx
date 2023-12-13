@@ -1,30 +1,25 @@
 import { NextPage } from "next";
 import { useHomePage } from "../hooks/useHomePage";
-import {
-  Button,
-  Input,
-  Layout,
-  Loading,
-  SearchInput,
-  Select,
-} from "@/components";
+import { Button, Loading, SearchInput, Select } from "@/components";
 import ReactSelect from "react-select";
 import { flexRender } from "@tanstack/react-table";
 import { Pagination } from "../components/Pagination";
 import { PlusIcon } from "@/components/icons/PlusIcon";
+import { twMerge } from "tailwind-merge";
+import { SortIcon } from "@/components/icons/SortIcon";
 
 export const HomePage: NextPage = () => {
   const { isLoading, users, isError, pageSizeOptions, table, handleSearch } =
     useHomePage();
 
   return (
-    <Layout>
+    <div>
       {isLoading ? (
         <Loading />
       ) : (
         !isError && (
           <div>
-            <div className="w-full my-4 flex flex-row justify-between items-center">
+            <div className="m-4 flex flex-row justify-between items-center">
               <div className="flex flex-row items-center">
                 <div className="mr-3 text-xs font-medium">Show</div>
                 <Select
@@ -49,28 +44,58 @@ export const HomePage: NextPage = () => {
                 </Button>
               </div>
             </div>
-            <table>
+            <table className="w-full">
               <thead>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
-                      <th key={header.id}>
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
+                      <th
+                        className={twMerge(
+                          "text-sm font-bold text-left py-4 pr-2",
+                          header.id === "id" && "text-center"
+                        )}
+                        key={header.id}
+                      >
+                        <div
+                          onClick={header.column.getToggleSortingHandler()}
+                          className={twMerge(
+                            header.column.getCanSort() &&
+                              "flex items-center justify-between cursor-pointer"
+                          )}
+                        >
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                          {header.column.getCanSort() ? (
+                            <SortIcon sortType={header.column.getIsSorted()} />
+                          ) : undefined}
+                        </div>
                       </th>
                     ))}
                   </tr>
                 ))}
               </thead>
               <tbody>
-                {table.getRowModel().rows.map((row) => (
-                  <tr key={row.id}>
-                    {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id}>
+                {table.getRowModel().rows.map((row, index) => (
+                  <tr
+                    className={twMerge(
+                      index % 2 === 0
+                        ? "bg-light-background dark:bg-dark-background"
+                        : "bg-light-table-odd dark:bg-dark-table-odd"
+                    )}
+                    key={row.id}
+                  >
+                    {row.getVisibleCells().map((cell, index) => (
+                      <td
+                        className={twMerge(
+                          "font-medium text-sm text-left py-[23.4px]",
+                          cell.id.endsWith("_id") && "text-center"
+                        )}
+                        key={cell.id}
+                      >
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -85,6 +110,6 @@ export const HomePage: NextPage = () => {
           </div>
         )
       )}
-    </Layout>
+    </div>
   );
 };

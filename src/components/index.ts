@@ -1,6 +1,5 @@
 export * from './Loading'
 export * from './Input'
 export * from './Button'
-export * from './Layout'
 export * from './SearchInput'
 export * from './Select'
