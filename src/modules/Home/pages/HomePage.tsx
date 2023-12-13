@@ -7,6 +7,8 @@ import { Pagination } from "../components/Pagination";
 import { PlusIcon } from "@/components/icons/PlusIcon";
 import { twMerge } from "tailwind-merge";
 import { SortIcon } from "@/components/icons/SortIcon";
+import { DeleteIcon } from "@/components/icons/DeleteIcon";
+import { EditIcon } from "@/components/icons/EditIcon";
 
 export const HomePage: NextPage = () => {
   const { isLoading, users, isError, pageSizeOptions, table, handleSearch } =
@@ -44,7 +46,7 @@ export const HomePage: NextPage = () => {
                 </Button>
               </div>
             </div>
-            <table className="w-full">
+            <table className="w-full table-auto">
               <thead>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
@@ -60,7 +62,7 @@ export const HomePage: NextPage = () => {
                           onClick={header.column.getToggleSortingHandler()}
                           className={twMerge(
                             header.column.getCanSort() &&
-                              "flex items-center justify-between cursor-pointer"
+                              "flex items-center justify-between cursor-pointer select-none"
                           )}
                         >
                           {header.isPlaceholder
@@ -75,6 +77,13 @@ export const HomePage: NextPage = () => {
                         </div>
                       </th>
                     ))}
+                    <th
+                      className={twMerge(
+                        "text-sm font-bold text-left py-4 pr-2"
+                      )}
+                    >
+                      Action
+                    </th>
                   </tr>
                 ))}
               </thead>
@@ -91,7 +100,7 @@ export const HomePage: NextPage = () => {
                     {row.getVisibleCells().map((cell, index) => (
                       <td
                         className={twMerge(
-                          "font-medium text-sm text-left py-[23.4px]",
+                          "font-medium text-sm text-left py-[23.4px] pr-2",
                           cell.id.endsWith("_id") && "text-center"
                         )}
                         key={cell.id}
@@ -102,6 +111,16 @@ export const HomePage: NextPage = () => {
                         )}
                       </td>
                     ))}
+                    <td
+                      className={twMerge(
+                        "font-medium text-sm text-left py-[23.4px]"
+                      )}
+                    >
+                      <div className="flex">
+                        <EditIcon className="cursor-pointer" />
+                        <DeleteIcon className="ml-4 cursor-pointer" />
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>

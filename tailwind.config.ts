@@ -27,6 +27,10 @@ const config: Config = {
       },
       colors: {
         primary: "#624DE3",
+        "success-bg": "#EBF9F1",
+        "success-text": "#1F9254",
+        "error-bg": "#FBE7E8",
+        "error-text": "#A30D11",
         light: {
           "select-bg": "#E0E0E0",
           background: "#fff",
