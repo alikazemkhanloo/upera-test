@@ -1,13 +1,8 @@
 import { FC, useRef, useState } from "react";
 import { MenuState, Menu, MenuItem } from "@szhsin/react-menu";
-import { ChevronDownIcon } from "../icons/ChevronDownIcon";
+import { ChevronDownIcon } from "@/components/icons";
 
-type Props<
-  T extends { value: any; label: string } = {
-    value: any;
-    label: string;
-  }
-> = {
+type Props<T extends { value: any; label: string }> = {
   onChange(option: T): void;
   options: T[];
   defaultValue: T;
@@ -29,9 +24,13 @@ const menuItemClassName = ({
     hover && "bg-light-background dark:bg-dark-background"
   } ${disabled && "text-gray-400"}`;
 
-export const Select: FC<Props> = (props) => {
+export type Option = {
+  value: number | string;
+  label: string;
+};
+
+export const Select = <T extends Option>(props: Props<T>) => {
   const { options, onChange, defaultValue } = props;
-  const selectRef = useRef<HTMLSelectElement>(null);
 
   const [value, setValue] = useState(defaultValue);
 

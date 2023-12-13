@@ -1,14 +1,10 @@
 import { NextPage } from "next";
 import { useHomePage } from "../hooks/useHomePage";
 import { Button, Loading, SearchInput, Select } from "@/components";
-import ReactSelect from "react-select";
 import { flexRender } from "@tanstack/react-table";
 import { Pagination } from "../components/Pagination";
-import { PlusIcon } from "@/components/icons/PlusIcon";
 import { twMerge } from "tailwind-merge";
-import { SortIcon } from "@/components/icons/SortIcon";
-import { DeleteIcon } from "@/components/icons/DeleteIcon";
-import { EditIcon } from "@/components/icons/EditIcon";
+import { PlusIcon, SortIcon, DeleteIcon, EditIcon } from "@/components/icons";
 
 export const HomePage: NextPage = () => {
   const { isLoading, users, isError, pageSizeOptions, table, handleSearch } =

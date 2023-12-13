@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@szhsin/react-menu": "^4.1.0",
-    "@tanstack/match-sorter-utils": "^8.8.4",
     "@tanstack/react-query": "^5.13.4",
     "@tanstack/react-table": "^8.10.7",
     "@types/lodash": "^4.14.202",
@@ -19,7 +18,6 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-select": "^5.8.0",
     "tailwind-merge": "^2.1.0"
   },
   "devDependencies": {

@@ -1,5 +1,4 @@
 import { useGetUser } from "@/modules/api";
-import { Options, OptionsOrGroups } from "react-select";
 
 import {
   ColumnFiltersState,
@@ -17,27 +16,12 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { useState } from "react";
-import {
-  RankingInfo,
-  rankItem,
-  compareItems,
-} from "@tanstack/match-sorter-utils";
 import { Status } from "../components/Status";
 
 const columnHelper = createColumnHelper<User>();
 
 const fuzzySort: SortingFn<any> = (rowA, rowB, columnId) => {
   let dir = 0;
-
-  // Only sort by rank if the column has ranking information
-  if (rowA.columnFiltersMeta[columnId]) {
-    dir = compareItems(
-      rowA.columnFiltersMeta[columnId]?.itemRank!,
-      rowB.columnFiltersMeta[columnId]?.itemRank!
-    );
-  }
-
-  // Provide an alphanumeric fallback for when the item ranks are equal
   return dir === 0 ? sortingFns.alphanumeric(rowA, rowB, columnId) : dir;
 };
 

@@ -6,7 +6,7 @@ import {
   useCallback,
   useState,
 } from "react";
-import { SearchIcon } from "../icons/SearchIcon";
+import { SearchIcon } from "@/components/icons";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   onSearch(text: string): void;
