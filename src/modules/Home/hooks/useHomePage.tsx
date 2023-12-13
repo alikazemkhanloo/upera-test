@@ -70,6 +70,7 @@ const columns = [
     header: "Status",
     sortingFn: fuzzySort,
     cell: (info) => <Status status={info.getValue()} />,
+    enableSorting: false,
   }),
   columnHelper.accessor("access", {
     header: "Access",

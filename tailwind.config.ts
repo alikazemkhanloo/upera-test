@@ -27,18 +27,21 @@ const config: Config = {
       },
       colors: {
         primary: "#624DE3",
+        'primary-hover': "#4735bc",
         "success-bg": "#EBF9F1",
         "success-text": "#1F9254",
         "error-bg": "#FBE7E8",
         "error-text": "#A30D11",
         light: {
           "select-bg": "#E0E0E0",
+          "select-bg-hover": "#cecece",
           background: "#fff",
           gray: "#9e9e9e",
           "table-odd": "#F7F6FE",
         },
         dark: {
           "select-bg": "#141432",
+          "select-bg-hover": "#0a0a26",
           background: "#1D1E42",
           gray: "#fff",
           "table-odd": "#26264F",

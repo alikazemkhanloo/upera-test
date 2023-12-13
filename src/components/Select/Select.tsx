@@ -40,7 +40,7 @@ export const Select: FC<Props> = (props) => {
       menuClassName={menuClassName}
       transition={true}
       menuButton={
-        <div className="cursor-pointer text-xs font-medium min-w-[43px] flex items-center justify-between rounded-lg px-2 py-[9px] bg-light-select-bg dark:bg-dark-select-bg">
+        <div className="transition-colors duration-300 cursor-pointer text-xs font-medium min-w-[43px] flex items-center justify-between rounded-lg px-2 py-[9px] bg-light-select-bg dark:bg-dark-select-bg hover:bg-light-select-bg-hover hover:dark:bg-dark-select-bg-hover">
           {value?.label}
           <ChevronDownIcon className="fill-light-gray dark:fill-dard-gray ml-[5px]" />
         </div>

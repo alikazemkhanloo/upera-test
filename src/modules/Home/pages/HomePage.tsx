@@ -125,7 +125,9 @@ export const HomePage: NextPage = () => {
                 ))}
               </tbody>
             </table>
-            <Pagination table={table} />
+            <div className="h-16 flex justify-center items-center ">
+              <Pagination table={table} />
+            </div>
           </div>
         )
       )}
