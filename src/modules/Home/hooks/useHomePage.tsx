@@ -67,19 +67,12 @@ export const useHomePage = () => {
     getFacetedMinMaxValues: getFacetedMinMaxValues(),
   });
 
-  const pageSizeOptions: Options<{ value: number; label: string }> = [
-    {
-      value: 10,
-      label: "10",
-    },
-    {
-      value: 20,
-      label: "20",
-    },
-    {
-      value: 50,
-      label: "50",
-    },
+  const pageSizeOptions: { value: number; label: string }[] = [
+    { value: 10, label: "10" },
+    { value: 20, label: "20" },
+    { value: 30, label: "30" },
+    { value: 40, label: "40" },
+    { value: 50, label: "50" },
   ];
 
   const handleSearch = (text: string) => {

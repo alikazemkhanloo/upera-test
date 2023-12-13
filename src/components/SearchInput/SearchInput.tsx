@@ -6,6 +6,7 @@ import {
   useCallback,
   useState,
 } from "react";
+import { SearchIcon } from "../icons/SearchIcon";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   onSearch(text: string): void;
@@ -26,8 +27,16 @@ export const SearchInput: FC<Props> = (props) => {
     handleSearch(e.target.value);
   };
   return (
-    <div>
-      <input {...props} value={value} onChange={handleChange} />;
+    <div className="flex h-8 items-center rounded-lg px-[9px] py-2 border border-solid border-light-gray dark:border-dark-gray">
+      <div className="pr-1">
+        <SearchIcon className="stroke-light-gray dark:stroke-dark-gray" />
+      </div>
+      <input
+        {...props}
+        className="flex-1 text-xs font-medium  bg-light-background dark:bg-dark-background focus:outline-none"
+        value={value}
+        onChange={handleChange}
+      />
     </div>
   );
 };
