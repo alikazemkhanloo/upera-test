@@ -12,7 +12,7 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
   onSearch(text: string): void;
 };
 export const SearchInput: FC<Props> = (props) => {
-  const { onSearch } = props;
+  const { onSearch, ...rest } = props;
   const [value, setValue] = useState("");
 
   const handleSearch = useCallback(
@@ -32,7 +32,7 @@ export const SearchInput: FC<Props> = (props) => {
         <SearchIcon className="stroke-light-gray dark:stroke-dark-gray" />
       </div>
       <input
-        {...props}
+        {...rest}
         className="flex-1 text-xs font-medium  bg-light-background dark:bg-dark-background focus:outline-none"
         value={value}
         onChange={handleChange}

@@ -8,10 +8,18 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const Button: FC<Props> = (props) => {
-  const { children, leftIcon, variant = "text", className, disabled } = props;
+  const {
+    children,
+    leftIcon,
+    variant = "text",
+    className,
+    disabled,
+    ...rest
+  } = props;
   return (
     <button
-      {...props}
+      {...rest}
+      disabled={disabled}
       className={twMerge(
         "h-8 text-xs font-bold py-[8.5px] px-3 flex items-center rounded-lg transition-colors duration-200",
         variant === "primary"
